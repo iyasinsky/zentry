@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Circular Web';
+  src: url('/fonts/circularweb-book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'General';
+  src: url('/fonts/general.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Robert';
+  src: url('/fonts/robert-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Robert';
+  src: url('/fonts/robert-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zentry';
+  src: url('/fonts/zentry-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --font-circular: 'Circular Web', ui-sans-serif;
+  --font-general: 'General', ui-sans-serif;
+  --font-robert: 'Robert', ui-sans-serif;
+  --font-zentry: 'Zentry', ui-sans-serif;
+
+  --color-ethereal-mist: #dfdff0; /* blue-50 */
+  --color-moonlit-veil: #dfdff2; /* blue-75 */
+  --color-celestial-fog: #f0f2fa; /* blue-100 */
+  --color-void-black: #010101; /* blue-200 */
+  --color-aqua-pulse: #4fb7dd; /* blue-300 */
+  --color-arcane-violet: #5724ff; /* violet-300 */
+  --color-mystic-moss: #8e983f; /* yellow-100 */
+  --color-luminous-spark: #edff66; /* yellow-300 */
+}
+
+body {
+  @apply font-general bg-ethereal-mist w-dvw overflow-x-hidden;
+}
+
+@layer utilities {
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
+  }
+
+  .mask-clip-path {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .hero-heading {
+    @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
+  }
+
+  .font-feature {
+    font-feature-settings: 'ss01' on;
+  }
+}
