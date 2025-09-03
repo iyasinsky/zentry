@@ -63,11 +63,19 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
+  .font-feature {
+    font-feature-settings: 'ss01';
+  }
+
   .hero-heading {
     @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
   }
 
-  .font-feature {
-    font-feature-settings: 'ss01';
+  .about-subtext {
+    @apply absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular text-lg md:max-w-[34rem];
+  }
+
+  .about-image {
+    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
   }
 }
