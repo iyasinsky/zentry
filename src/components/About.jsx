@@ -30,7 +30,23 @@ const About = () => {
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <h2 className="font-general text-sm md:text-xs uppercase">Welcome to Zentry</h2>
 
-        <AnimatedTitle />
+        <AnimatedTitle externalClasses="mt-5 text-black text-center">
+          <div className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
+            <span className="animated-word">
+              Disc<b>o</b>ver
+            </span>
+            <span className="animated-word">the</span>
+            <span className="animated-word">world's</span>
+          </div>
+
+          <div className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
+            <span className="animated-word">largest</span>
+            <span className="animated-word">shared</span>
+            <span className="animated-word">
+              <b>a</b>dventure
+            </span>
+          </div>
+        </AnimatedTitle>
 
         <div className="about-subtext">
           <p>The Game of Games begins—your life, now an epic MMORPG</p>
