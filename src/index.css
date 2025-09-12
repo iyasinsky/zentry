@@ -100,18 +100,18 @@ body {
 
   @keyframes sound {
     0% {
-      transform: scaleY(0.3);
+      transform: scaleY(0.4);
     }
     50% {
-      transform: scaleY(1);
+      transform: scaleY(1.5);
     }
     100% {
-      transform: scaleY(0.3);
+      transform: scaleY(0.4);
     }
   }
 
   .animate-sound {
-    animation: sound 0.8s infinite ease-in-out;
+    animation: sound 0.5s infinite ease-in-out;
   }
 
   .indicator-line {

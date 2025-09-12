@@ -15,17 +15,19 @@ export default function AudioIndicator() {
     setIsPlaying(!isPlaying);
   };
 
+  // transition
   return (
-    <button onClick={togglePlay} className="flex gap-1 items-center transition mr-10">
+    <button onClick={togglePlay} className="flex gap-0.5 mr-10">
       <audio ref={audioRef} src="/audio/loop.mp3" preload="auto" loop />
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className={`rounded-sm ${isPlaying ? 'animate-sound' : ''} h-1 w-0.5 bg-white`}
+          className={`h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out ${
+            isPlaying ? 'animate-sound' : ''
+          }`}
           style={{ animationDelay: `${i * 0.1}s` }}
         />
       ))}
-      rounded-full transition-all duration-200 ease-in-out
     </button>
   );
 }

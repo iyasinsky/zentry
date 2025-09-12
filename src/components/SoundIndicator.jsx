@@ -17,7 +17,7 @@ const SoundIndicator = () => {
   };
 
   return (
-    <button onClick={togglePlay} className="flex items-end space-x-0.5">
+    <button onClick={togglePlay} className="flex items-end gap-0.5">
       <audio ref={audioRef} src="/audio/loop.mp3" preload="auto" loop />
       {[...Array(4)].map((_, i) => (
         <span
