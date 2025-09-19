@@ -1,14 +1,40 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
-import AudioIndicator from './AudioIndicator';
-import SoundIndicator from './soundIndicator';
+import SoundIndicator from './SoundIndicator';
+import { useWindowScroll } from 'react-use';
+import gsap from 'gsap';
 
 const NavBar = () => {
-  const navContainerRef = useRef(null);
-  // const audioElementRef = useRef(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isNavBarVisible, setIsNavBarVisible] = useState(true);
 
-  // const toggleAudioIndicator = () => {};
+  const navContainerRef = useRef(null);
+
+  const { y: currentScrollY } = useWindowScroll();
+
+  useEffect(() => {
+    if (currentScrollY === 0) {
+      setIsNavBarVisible(true);
+      navContainerRef.current.classList.remove('floating-nav');
+    } else if (currentScrollY > lastScrollY) {
+      setIsNavBarVisible(false);
+      navContainerRef.current.classList.add('floating-nav');
+    } else if (currentScrollY < lastScrollY) {
+      setIsNavBarVisible(true);
+      navContainerRef.current.classList.add('floating-nav');
+    }
+    setLastScrollY(currentScrollY);
+  }, [currentScrollY, lastScrollY]);
+
+  useEffect(() => {
+    gsap.to(navContainerRef.current, {
+      y: isNavBarVisible ? 0 : -100,
+      opacity: isNavBarVisible ? 1 : 0,
+      duration: 0.2,
+    });
+  }, [isNavBarVisible]);
+
   return (
     <div
       ref={navContainerRef}
@@ -25,7 +51,7 @@ const NavBar = () => {
               externalClasses="bg-ethereal-mist md:flex flex-row-reverse hidden"
             />
           </div>
-          <div className="flex h-full items-center">
+          <div className="flex h-full items-center gap-10">
             <div className="hidden md:block">
               <a href="#nexus" className="nav-hover-btn">
                 Nexus
@@ -43,8 +69,6 @@ const NavBar = () => {
                 Contact
               </a>
             </div>
-            <AudioIndicator />
-
             <SoundIndicator />
           </div>
         </nav>

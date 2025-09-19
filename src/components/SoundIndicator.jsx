@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState, useRef } from 'react';
 
 const SoundIndicator = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,13 +17,15 @@ const SoundIndicator = () => {
   };
 
   return (
-    <button onClick={togglePlay} className="flex items-end gap-0.5">
+    <button onClick={togglePlay} className="flex gap-0.5">
       <audio ref={audioRef} src="/audio/loop.mp3" preload="auto" loop />
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className={`indicator-line ${isPlaying ? 'active' : ''}`}
-          style={{ '--order': i }}
+          className={`h-1 w-px rounded-full bg-white transition-transform duration-200 ease-in-out ${
+            isPlaying ? 'animate-sound' : ''
+          }`}
+          style={{ animationDelay: `${i * 0.1}s` }}
         />
       ))}
     </button>
