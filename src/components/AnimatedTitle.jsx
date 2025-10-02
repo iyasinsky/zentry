@@ -36,13 +36,6 @@ const AnimatedTitle = ({ children, externalClasses }) => {
   return (
     <div ref={containerRef} className={`animated-title ${externalClasses}`}>
       {children}
-      {/* {title.split('<br />').map((line, index) => (
-        <div key={index} className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
-          {line.split(' ').map((word, idx) => (
-            <span key={idx} className="animated-word" dangerouslySetInnerHTML={{ __html: word }} />
-          ))}
-        </div>
-      ))} */}
     </div>
   );
 };
