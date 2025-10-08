@@ -32,9 +32,7 @@ const About = () => {
 
         <AnimatedTitle externalClasses="mt-5 text-black text-center">
           <div className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
-            <span className="animated-word">
-              Disc<span className="font-feature">o</span>ver
-            </span>
+            <span className="animated-word font-feature">Discover</span>
             <span className="animated-word">the</span>
             <span className="animated-word">world's</span>
           </div>
@@ -42,9 +40,7 @@ const About = () => {
           <div className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
             <span className="animated-word">largest</span>
             <span className="animated-word">shared</span>
-            <span className="animated-word">
-              <span className="font-feature">a</span>dventure
-            </span>
+            <span className="animated-word font-feature">adventure</span>
           </div>
         </AnimatedTitle>
 
