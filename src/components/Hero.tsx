@@ -21,8 +21,8 @@ const Hero = () => {
   }, [loadedVideos]);
 
   const totalVideos = 4;
-  const nextVideoRef = useRef(null);
-  const getVideoPath = (idx) => `videos/hero-${idx}.mp4`;
+  const nextVideoRef = useRef<HTMLVideoElement>(null);
+  const getVideoPath = (idx: number): string => `videos/hero-${idx}.mp4`;
 
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
@@ -46,7 +46,9 @@ const Hero = () => {
           height: '100%',
           duration: 1,
           ease: 'power1.inOut',
-          onStart: () => nextVideoRef.current.play(),
+          onStart: () => {
+            nextVideoRef.current?.play();
+          },
         });
         gsap.from('#current-video', {
           transformOrigin: 'center center',
@@ -151,3 +153,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// onStart: function (this: gsap.core.Tween) {
+//             nextVideoRef.current?.play();
+//           },

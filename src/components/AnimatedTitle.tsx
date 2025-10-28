@@ -1,11 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, ReactNode } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimatedTitle = ({ children, externalClasses }) => {
-  const containerRef = useRef(null);
+interface AnimatedTitleProps {
+  children: ReactNode;
+  externalClasses?: string;
+}
+
+const AnimatedTitle = ({ children, externalClasses }: AnimatedTitleProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

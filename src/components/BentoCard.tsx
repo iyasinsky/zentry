@@ -1,4 +1,10 @@
-const BentoCard = ({ src, title, description }) => {
+interface BentoCardProps {
+  src: string;
+  title: string;
+  description?: string;
+}
+
+const BentoCard = ({ src, title, description }: BentoCardProps) => {
   return (
     <div className="relative size-full">
       <video

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 
 const SoundIndicator = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
     if (!audioRef.current) return;

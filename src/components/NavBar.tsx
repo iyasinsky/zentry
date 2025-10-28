@@ -9,20 +9,20 @@ const NavBar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavBarVisible, setIsNavBarVisible] = useState(true);
 
-  const navContainerRef = useRef(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
 
   const { y: currentScrollY } = useWindowScroll();
 
   useEffect(() => {
     if (currentScrollY === 0) {
       setIsNavBarVisible(true);
-      navContainerRef.current.classList.remove('floating-nav');
+      navContainerRef.current?.classList.remove('floating-nav');
     } else if (currentScrollY > lastScrollY) {
       setIsNavBarVisible(false);
-      navContainerRef.current.classList.add('floating-nav');
+      navContainerRef.current?.classList.add('floating-nav');
     } else if (currentScrollY < lastScrollY) {
       setIsNavBarVisible(true);
-      navContainerRef.current.classList.add('floating-nav');
+      navContainerRef.current?.classList.add('floating-nav');
     }
     setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);
